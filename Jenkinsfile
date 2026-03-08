@@ -23,8 +23,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'mkdir C:\\deploy-demo'
-                bat 'copy index.html C:\\deploy-demo'
+                bat '''
+                if not exist C:\\deploy-demo mkdir C:\\deploy-demo
+                copy index.html C:\\deploy-demo
+                '''
             }
         }
     }
